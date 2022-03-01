@@ -33,6 +33,15 @@
     </div>
 
     <div class="container">
+        <p>Grid labels</p>
+        <input type="radio" id="labels_yes" name="labels" value="yes" checked>
+        <label for="labels_yes">yes</label>
+        <input type="radio" id="labels_no" name="labels" value="no">
+        <label for="labels_no">no</label>
+    </div>
+
+
+    <div class="container">
         <p>Variability</p>
         <input type="radio" id="variability_low" name="variability" value="low" >
         <label for="variability_low">low</label>
@@ -85,11 +94,13 @@ document.getElementById('create').onclick = () => {
 
   const grid = document.querySelector('input[name="grid"]:checked').value;
 
+  const labels = document.querySelector('input[name="labels"]:checked').value;
+
   const variability = document.querySelector('input[name="variability"]:checked').value;
 
   const line_style = document.querySelector('input[name="style"]:checked').value;
   
-  parent.postMessage({ pluginMessage: { type: 'create-linechart', pointsCount, width, height, dots, lines, dotsSize, grid, variability, line_style } }, '*')
+  parent.postMessage({ pluginMessage: { type: 'create-linechart', pointsCount, width, height, dots, lines, dotsSize, grid, labels, variability, line_style } }, '*')
 }
 
 document.getElementById('about_button').onclick = () => {
