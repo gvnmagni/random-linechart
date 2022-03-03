@@ -17,7 +17,7 @@ figma.ui.onmessage = msg => {
     let leftLabelsMargin = 0;
     let bottomLabelsMargin = 0;
     if ((msg.grid === "yes") && (msg.labels === "yes")){
-        leftLabelsMargin = 50;
+        leftLabelsMargin = 35;
         bottomLabelsMargin = 30;
     }   
     
@@ -109,10 +109,10 @@ figma.ui.onmessage = msg => {
                 left_label.fontName = { family: "Inter", style: "Regular" };
                 left_label.characters = ((4-i)*100)+"K";
                 left_label.textAlignHorizontal = "RIGHT";
-                left_label.resize(30,16);
+                left_label.resize(28,16);
                 left_label.fontSize = 10;
                 left_label.setRangeFills(0,left_label.characters.length, [{ type: 'SOLID', color: labels_color}]);
-                left_label.x = 10;
+                left_label.x = 0;
                 left_label.y = (((msg.height-bottomLabelsMargin)/4*i))-8;
                 left_label.name = "left_label_"+identifier;
 
