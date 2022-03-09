@@ -35,6 +35,7 @@ figma.ui.onmessage = msg => {
 
     // ---------------------------------
     // Create chart frame
+    const center = figma.viewport.center;
     const chart_frame = figma.createFrame();
     chart_frame.resizeWithoutConstraints(msg.width, msg.height);
     chart_frame.clipsContent = false;
@@ -232,8 +233,8 @@ figma.ui.onmessage = msg => {
 
 }
 
-    figma.currentPage.selection = [chart_frame];
-    figma.viewport.scrollAndZoomIntoView([chart_frame]);
+    chart_frame.x = center.x-(msg.width/2);
+    chart_frame.y = center.y-(msg.height/2);
   }
   figma.closePlugin();
 };
